@@ -26,3 +26,7 @@ Route::get('/users', [UserController::class, 'readAll']);
 Route::get('/shops', [ShopController::class, 'readAll']);
 Route::get('/laundrys', [LaundryController::class, 'readAll']);
 Route::get('/promos', [PromoController::class, 'readAll']);
+
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+
