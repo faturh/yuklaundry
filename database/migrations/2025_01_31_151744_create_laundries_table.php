@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('laundries', function (Blueprint $table) {
             $table->id();
             $table->string('claim_code');
-            $table->bigInteger('user_id');
-            $table->bigInteger('shop_id');
             $table->double('weight');
             $table->boolean('with_pickup');
             $table->boolean('with_delivery');

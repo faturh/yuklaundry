@@ -10,6 +10,11 @@ class promo extends Model
     //
     use HasFactory;
 
+    public function shop(){
+
+        return $this->belongsTo(Shop::class);
+    }
+
     protected $fillable = [
         'name',
         'image',

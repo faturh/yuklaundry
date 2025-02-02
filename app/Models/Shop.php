@@ -10,6 +10,14 @@ class shop extends Model
     //
     use HasFactory;
 
+    // public function promo(){
+    //     return $this->hasMany(Promo::class);
+    // }
+
+    public function laundries(){
+        return $this->hasMany(Laundry::class);
+    }
+
     protected $fillable = [
         'image',
         'name',
