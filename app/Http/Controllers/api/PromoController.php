@@ -11,7 +11,7 @@ class PromoController extends Controller
     //
     function readAll()
     {
-        $promos = Promo::all();
+        $promos = Promo::with('shop')->get();
 
         return response()->json([
             'data' => $promos,

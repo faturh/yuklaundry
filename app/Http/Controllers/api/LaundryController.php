@@ -11,7 +11,7 @@ class LaundryController extends Controller
     //
     function readAll()
     {
-        $laundrys = Laundry::all();
+        $laundrys = Laundry::with('user', 'shop')->get();
 
         return response()->json([
             'data' => $laundrys,
