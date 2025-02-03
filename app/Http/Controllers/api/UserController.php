@@ -21,7 +21,7 @@ class UserController extends Controller
         ], 200);
     }
     function register(Request $request) {
-        $this->validate($request, [
+        $validate = $request->validate([
             'username' => 'required|min:4|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',

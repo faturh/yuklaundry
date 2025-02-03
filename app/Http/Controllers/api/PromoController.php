@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class PromoController extends Controller
 {
-    //
     function readAll()
     {
         $promos = Promo::with('shop')->get();
@@ -20,9 +19,12 @@ class PromoController extends Controller
 
     function readLimit()
     {
-        $promos = Promo::orderBy('created_at', 'desc')->limit(5)->with('shop')->get();
+        $promos = Promo::orderBy('created_at', 'desc')
+            ->limit(5)
+            ->with('shop')
+            ->get();
 
-        if (count($promos)>0){
+        if (count($promos) > 0) {
             return response()->json([
                 'data' => $promos,
             ], 200);

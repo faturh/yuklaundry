@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class promo extends Model
+class Promo extends Model
 {
-    //
     use HasFactory;
 
-    public function shop(){
-
+    public function shop()
+    {
         return $this->belongsTo(Shop::class);
     }
 
     protected $fillable = [
-        'name',
         'image',
         'shop_id',
         'old_price',

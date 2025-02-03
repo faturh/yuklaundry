@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers\api; // Pastikan namespace sesuai
+
 use App\Http\Controllers\api\LaundryController;
 use App\Http\Controllers\api\PromoController;
 use App\Http\Controllers\api\ShopController;
@@ -39,6 +41,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // laundry
     Route::get('/laundry/user/{id}', [LaundryController::class, 'whereUserId']);
     Route::post('/laundry/claim', [LaundryController::class, 'claim']);
-    // limit
+    // promo
     Route::get('/promo/limit', [PromoController::class, 'readLimit']);
 });
