@@ -22,11 +22,22 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/users', [UserController::class, 'readAll']);
-Route::get('/shops', [ShopController::class, 'readAll']);
-Route::get('/laundrys', [LaundryController::class, 'readAll']);
-Route::get('/promos', [PromoController::class, 'readAll']);
-
+Route::get('/user', [UserController::class, 'readAll']);
+Route::get('/shop', [ShopController::class, 'readAll']);
+Route::get('/laundry', [LaundryController::class, 'readAll']);
+Route::get('/promo', [PromoController::class, 'readAll']);
+// register login
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
+Route::middleware('auth:sanctum')->group(function () {
+    // user
+    Route::get('/user', [UserController::class, 'readAll']);
+    // shop
+    Route::get('/shop/recommendation/limit', [ShopController::class, 'readRecommendationLimit']);
+    Route::get('/shop/search/city{name}', [ShopController::class, 'searchByCity']);
+    // laundry
+    Route::get('/laundry/user/{id}', [LaundryController::class, 'whereUserId']);
+    // limit
+    Route::get('/promo/limit', [PromoController::class, 'readLimit']);
+});
