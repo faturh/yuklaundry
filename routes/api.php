@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/shop/search/city{name}', [ShopController::class, 'searchByCity']);
     // laundry
     Route::get('/laundry/user/{id}', [LaundryController::class, 'whereUserId']);
+    Route::post('/laundry/claim', [LaundryController::class, 'claim']);
     // limit
     Route::get('/promo/limit', [PromoController::class, 'readLimit']);
 });
